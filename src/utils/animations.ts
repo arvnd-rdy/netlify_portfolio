@@ -1,5 +1,4 @@
 
-
 export const fadeInUp = {
   hidden: { 
     opacity: 0, 
@@ -12,7 +11,7 @@ export const fadeInUp = {
     scale: 1,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
+      ease: [0.6, -0.05, 0.01, 0.99]
     }
   }
 };
@@ -27,7 +26,7 @@ export const fadeInLeft = {
     x: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut"
+      ease: [0.6, -0.05, 0.01, 0.99]
     }
   }
 };
@@ -42,7 +41,7 @@ export const fadeInRight = {
     x: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut"
+      ease: [0.6, -0.05, 0.01, 0.99]
     }
   }
 };
@@ -67,7 +66,7 @@ export const staggerItem = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
+      ease: [0.6, -0.05, 0.01, 0.99]
     }
   }
 };
@@ -82,7 +81,7 @@ export const scaleIn = {
     scale: 1,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
+      ease: [0.6, -0.05, 0.01, 0.99]
     }
   }
 };
@@ -97,8 +96,7 @@ export const slideInHorizontal = {
     x: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut"
+      ease: [0.6, -0.05, 0.01, 0.99]
     }
   }
 };
-
