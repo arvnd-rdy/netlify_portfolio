@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
@@ -42,7 +41,7 @@ const ExperienceSection = () => {
   return (
     <motion.section 
       id="experience" 
-      className="py-32 bg-gray-50 relative z-10"
+      className="py-32 bg-gray-50 relative z-10 scroll-mt-28"
     >
       <motion.div 
         className="container mx-auto max-w-6xl px-8" 

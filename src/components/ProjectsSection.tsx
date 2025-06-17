@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -38,7 +37,7 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 bg-white" ref={containerRef}>
+    <section id="projects" className="py-32 bg-white relative z-10 scroll-mt-28" ref={containerRef}>
       <motion.div 
         className="container mx-auto max-w-6xl px-8" 
         ref={ref}

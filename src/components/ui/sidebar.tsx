@@ -2,6 +2,7 @@ import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"
 import { PanelLeft } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
@@ -732,6 +733,46 @@ const SidebarMenuSubButton = React.forwardRef<
   )
 })
 SidebarMenuSubButton.displayName = "SidebarMenuSubButton"
+
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
+
+export default function SidebarNav() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      // 100vh in pixels
+      const heroHeight = window.innerHeight;
+      setShow(window.scrollY >= heroHeight - 10); // -10 for a slight buffer
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // run on mount
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`fixed top-1/4 left-8 z-[100] hidden md:flex flex-col space-y-6 bg-white/80 rounded-xl shadow-lg px-4 py-6 transition-opacity duration-500 ${show ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+      aria-label="Section Navigation"
+    >
+      {navItems.map((item) => (
+        <a
+          key={item.href}
+          href={item.href}
+          className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  );
+}
 
 export {
   Sidebar,

@@ -1,9 +1,15 @@
-
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
+import { Github, Linkedin, Mail } from "lucide-react";
+
+const socialLinks = [
+  { icon: Github, href: "https://github.com/arvnd-rdy" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/arvnd-rdy/" },
+  { icon: Mail, href: "mailto:arvindhreddyanugu2002@gmail.com" },
+];
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -22,8 +28,22 @@ const HeroSection = () => {
 
   return (
     <motion.section 
-      className="min-h-screen bg-gray-50 flex flex-col fixed top-0 left-0 right-0 z-0"
+      className="min-h-screen bg-gray-50 flex flex-col"
     >
+      {/* Social Icons - Left Side */}
+      <div className="hidden md:flex flex-col items-center space-y-4 absolute left-8 top-1/2 -translate-y-1/2 z-20">
+        {socialLinks.map(({ icon: Icon, href }) => (
+          <a
+            key={href}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-gray-900 transition-colors duration-200"
+          >
+            <Icon className="w-6 h-6" />
+          </a>
+        ))}
+      </div>
       {/* Navigation */}
       <motion.nav 
         className="flex justify-between items-center p-8 text-sm text-gray-600"
@@ -135,9 +155,9 @@ const HeroSection = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                src="/hero2.png"
                 alt="Arvind Reddy"
-                className="w-80 h-96 object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-[384px] h-[460px] object-cover transition-all duration-700"
                 whileHover={{ scale: 1.02 }}
               />
             </motion.div>

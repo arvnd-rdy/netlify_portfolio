@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
@@ -19,7 +18,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <footer id="contact" className="py-32 bg-white">
+    <footer id="contact" className="py-32 bg-white relative z-10 scroll-mt-28">
       <motion.div 
         className="container mx-auto max-w-6xl px-8" 
         ref={ref}
