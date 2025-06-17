@@ -1,5 +1,9 @@
 
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
 const SkillsSection = () => {
+  const [ref, isIntersecting] = useIntersectionObserver();
+
   const skills = {
     "Languages": [
       "JavaScript", "TypeScript", "Python", "Java", "C++", "SQL"
@@ -23,28 +27,33 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="py-32 bg-gray-50">
-      <div className="container mx-auto max-w-6xl px-8">
+      <div className="container mx-auto max-w-6xl px-8" ref={ref}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div>
+          <div className={`transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
             <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
               SKILLS &<br />EXPERTISE
             </h2>
-            <p className="text-gray-600 leading-relaxed max-w-md">
+            <p className={`text-gray-600 leading-relaxed max-w-md transition-all duration-800 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '400ms' }}>
               A comprehensive toolkit for building modern, intelligent applications with precision and creativity.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {Object.entries(skills).map(([category, skillList]) => (
-              <div key={category} className="space-y-4">
+            {Object.entries(skills).map(([category, skillList], categoryIndex) => (
+              <div 
+                key={category} 
+                className={`space-y-4 transition-all duration-800 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                style={{ transitionDelay: `${200 + categoryIndex * 100}ms` }}
+              >
                 <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wide">
                   {category}
                 </h3>
                 <div className="space-y-2">
-                  {skillList.map((skill) => (
+                  {skillList.map((skill, skillIndex) => (
                     <div 
                       key={skill}
-                      className="text-gray-600 hover:text-gray-900 transition-colors cursor-default"
+                      className={`text-gray-600 hover:text-gray-900 transition-all duration-300 cursor-default hover:translate-x-2 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
+                      style={{ transitionDelay: `${400 + categoryIndex * 100 + skillIndex * 50}ms` }}
                     >
                       {skill}
                     </div>
