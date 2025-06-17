@@ -1,45 +1,73 @@
+
 import { Button } from "@/components/ui/button";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
 
 const AboutSection = () => {
-  const { ref, isIntersecting } = useIntersectionObserver();
+  const { ref, isInView } = useScrollAnimation();
 
   return (
     <section id="about" className="py-32 bg-white">
-      <div className="container mx-auto max-w-6xl px-8" ref={ref}>
+      <motion.div 
+        className="container mx-auto max-w-6xl px-8" 
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div className={`transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
-              ABOUT ME
-            </h2>
-          </div>
+          <motion.div variants={fadeInLeft}>
+            <motion.h2 
+              className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight"
+              variants={staggerContainer}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            >
+              <motion.span variants={staggerItem} className="block">ABOUT</motion.span>
+              <motion.span variants={staggerItem} className="block">ME</motion.span>
+            </motion.h2>
+          </motion.div>
           
-          <div className={`space-y-8 transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{ transitionDelay: '200ms' }}>
-            <div className="space-y-6 text-gray-600 leading-relaxed">
-              <p className={`transition-all duration-800 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '400ms' }}>
+          <motion.div 
+            className="space-y-8"
+            variants={fadeInRight}
+          >
+            <motion.div 
+              className="space-y-6 text-gray-600 leading-relaxed"
+              variants={staggerContainer}
+            >
+              <motion.p variants={staggerItem}>
                 I'm a passionate Full Stack Developer and AI/ML Engineer with a deep love for creating 
                 innovative solutions that make a real impact. My journey in technology spans across 
                 building scalable web applications, implementing machine learning models, and crafting 
                 seamless user experiences.
-              </p>
+              </motion.p>
               
-              <p className={`transition-all duration-800 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '600ms' }}>
+              <motion.p variants={staggerItem}>
                 With expertise in modern frameworks and cutting-edge AI technologies, I thrive on 
                 solving complex problems and turning ideas into reality. I believe in writing clean, 
                 efficient code and staying at the forefront of technological advancement.
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
 
-            <div className={`pt-8 transition-all duration-800 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
-              <Button 
-                className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            <motion.div 
+              className="pt-8"
+              variants={staggerItem}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
-                DOWNLOAD RESUME →
-              </Button>
-            </div>
-          </div>
+                <Button 
+                  className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg"
+                >
+                  DOWNLOAD RESUME →
+                </Button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

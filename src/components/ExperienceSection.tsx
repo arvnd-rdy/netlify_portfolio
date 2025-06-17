@@ -1,7 +1,10 @@
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
 
 const ExperienceSection = () => {
-  const { ref, isIntersecting } = useIntersectionObserver();
+  const { ref, isInView } = useScrollAnimation();
 
   const experiences = [
     {
@@ -38,25 +41,48 @@ const ExperienceSection = () => {
 
   return (
     <section id="experience" className="py-32 bg-gray-50">
-      <div className="container mx-auto max-w-6xl px-8" ref={ref}>
+      <motion.div 
+        className="container mx-auto max-w-6xl px-8" 
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className={`transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
-              WORK<br />EXPERIENCE
-            </h2>
-            <p className={`text-gray-600 leading-relaxed max-w-md transition-all duration-800 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '400ms' }}>
+          <motion.div variants={fadeInLeft}>
+            <motion.h2 
+              className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight"
+              variants={staggerContainer}
+            >
+              <motion.span variants={staggerItem} className="block">WORK</motion.span>
+              <motion.span variants={staggerItem} className="block">EXPERIENCE</motion.span>
+            </motion.h2>
+            <motion.p 
+              className="text-gray-600 leading-relaxed max-w-md"
+              variants={staggerItem}
+            >
               Building innovative solutions across diverse industries and technologies with a focus on impact and excellence.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="space-y-12">
+          <motion.div 
+            className="space-y-12"
+            variants={staggerContainer}
+          >
             {experiences.map((exp, index) => (
-              <div 
+              <motion.div 
                 key={exp.company} 
-                className={`space-y-4 transition-all duration-1000 hover:translate-x-2 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-                style={{ transitionDelay: `${200 + index * 200}ms` }}
+                className="space-y-4"
+                variants={staggerItem}
+                whileHover={{ 
+                  x: 10,
+                  transition: { duration: 0.3 }
+                }}
               >
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ delay: index * 0.2 }}
+                >
                   <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wide hover:text-gray-700 transition-colors duration-300">
                     {exp.company}
                   </h3>
@@ -66,24 +92,28 @@ const ExperienceSection = () => {
                   <p className="text-gray-500 text-sm">
                     {exp.duration}
                   </p>
-                </div>
+                </motion.div>
                 
-                <ul className="space-y-2">
+                <motion.ul 
+                  className="space-y-2"
+                  variants={staggerContainer}
+                >
                   {exp.achievements.map((achievement, i) => (
-                    <li 
+                    <motion.li 
                       key={i} 
-                      className={`text-gray-600 text-sm leading-relaxed hover:text-gray-900 transition-all duration-300 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
-                      style={{ transitionDelay: `${400 + index * 200 + i * 100}ms` }}
+                      className="text-gray-600 text-sm leading-relaxed hover:text-gray-900 transition-all duration-300"
+                      variants={staggerItem}
+                      whileHover={{ x: 5 }}
                     >
                       • {achievement}
-                    </li>
+                    </motion.li>
                   ))}
-                </ul>
-              </div>
+                </motion.ul>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

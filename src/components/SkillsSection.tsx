@@ -1,7 +1,10 @@
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
 
 const SkillsSection = () => {
-  const { ref, isIntersecting } = useIntersectionObserver();
+  const { ref, isInView } = useScrollAnimation();
 
   const skills = {
     "Languages": [
@@ -26,43 +29,64 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="py-32 bg-gray-50">
-      <div className="container mx-auto max-w-6xl px-8" ref={ref}>
+      <motion.div 
+        className="container mx-auto max-w-6xl px-8" 
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className={`transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
-              SKILLS &<br />EXPERTISE
-            </h2>
-            <p className={`text-gray-600 leading-relaxed max-w-md transition-all duration-800 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '400ms' }}>
+          <motion.div variants={fadeInLeft}>
+            <motion.h2 
+              className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight"
+              variants={staggerContainer}
+            >
+              <motion.span variants={staggerItem} className="block">SKILLS &</motion.span>
+              <motion.span variants={staggerItem} className="block">EXPERTISE</motion.span>
+            </motion.h2>
+            <motion.p 
+              className="text-gray-600 leading-relaxed max-w-md"
+              variants={staggerItem}
+            >
               A comprehensive toolkit for building modern, intelligent applications with precision and creativity.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            variants={staggerContainer}
+          >
             {Object.entries(skills).map(([category, skillList], categoryIndex) => (
-              <div 
+              <motion.div 
                 key={category} 
-                className={`space-y-4 transition-all duration-800 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-                style={{ transitionDelay: `${200 + categoryIndex * 100}ms` }}
+                className="space-y-4"
+                variants={staggerItem}
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
               >
                 <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wide">
                   {category}
                 </h3>
-                <div className="space-y-2">
+                <motion.div 
+                  className="space-y-2"
+                  variants={staggerContainer}
+                >
                   {skillList.map((skill, skillIndex) => (
-                    <div 
+                    <motion.div 
                       key={skill}
-                      className={`text-gray-600 hover:text-gray-900 transition-all duration-300 cursor-default hover:translate-x-2 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
-                      style={{ transitionDelay: `${400 + categoryIndex * 100 + skillIndex * 50}ms` }}
+                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 cursor-default"
+                      variants={staggerItem}
+                      whileHover={{ x: 8, color: "#111827" }}
                     >
                       {skill}
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
