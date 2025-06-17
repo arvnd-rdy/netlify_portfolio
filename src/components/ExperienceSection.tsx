@@ -2,7 +2,7 @@
 const ExperienceSection = () => {
   const experiences = [
     {
-      company: "TechCorp Inc.",
+      company: "TECHCORP INC.",
       role: "Senior Full Stack Developer",
       duration: "2022 - Present",
       achievements: [
@@ -12,7 +12,7 @@ const ExperienceSection = () => {
       ]
     },
     {
-      company: "AI Solutions Ltd.",
+      company: "AI SOLUTIONS LTD.",
       role: "Machine Learning Engineer",
       duration: "2020 - 2022",
       achievements: [
@@ -22,7 +22,7 @@ const ExperienceSection = () => {
       ]
     },
     {
-      company: "StartupXYZ",
+      company: "STARTUPXYZ",
       role: "Full Stack Developer",
       duration: "2019 - 2020",
       achievements: [
@@ -34,59 +34,43 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto max-w-4xl px-4">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">
-            Experience
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Building innovative solutions across diverse industries and technologies
-          </p>
-        </div>
+    <section id="experience" className="py-32 bg-gray-50">
+      <div className="container mx-auto max-w-6xl px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
+              WORK<br />EXPERIENCE
+            </h2>
+            <p className="text-gray-600 leading-relaxed max-w-md">
+              Building innovative solutions across diverse industries and technologies with a focus on impact and excellence.
+            </p>
+          </div>
 
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-warm-red-200"></div>
-
-          {experiences.map((exp, index) => (
-            <div 
-              key={exp.company}
-              className={`relative flex items-center mb-12 animate-fade-in-up ${
-                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              {/* Timeline Dot */}
-              <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-warm-red-500 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-              {/* Content Card */}
-              <div className={`ml-12 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                <div className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="mb-4">
-                    <h3 className="text-xl font-semibold text-gray-900 font-serif">
-                      {exp.role}
-                    </h3>
-                    <p className="text-warm-red-600 font-medium">
-                      {exp.company}
-                    </p>
-                    <p className="text-gray-500 text-sm">
-                      {exp.duration}
-                    </p>
-                  </div>
-                  
-                  <ul className="space-y-2">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="text-gray-700 text-sm leading-relaxed flex items-start">
-                        <span className="w-2 h-2 bg-warm-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
+          <div className="space-y-12">
+            {experiences.map((exp) => (
+              <div key={exp.company} className="space-y-4">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wide">
+                    {exp.company}
+                  </h3>
+                  <p className="text-gray-600 font-medium">
+                    {exp.role}
+                  </p>
+                  <p className="text-gray-500 text-sm">
+                    {exp.duration}
+                  </p>
                 </div>
+                
+                <ul className="space-y-2">
+                  {exp.achievements.map((achievement, i) => (
+                    <li key={i} className="text-gray-600 text-sm leading-relaxed">
+                      • {achievement}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

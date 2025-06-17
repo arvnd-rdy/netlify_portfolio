@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const ContactSection = () => {
   const scrollToTop = () => {
@@ -8,72 +8,69 @@ const ContactSection = () => {
   };
 
   return (
-    <footer className="py-20 bg-gray-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-warm-red-500 to-transparent"></div>
-      </div>
+    <footer id="contact" className="py-32 bg-white">
+      <div className="container mx-auto max-w-6xl px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
+              LET'S<br />CONNECT
+            </h2>
+            <p className="text-gray-600 leading-relaxed max-w-md mb-8">
+              Ready to collaborate on something amazing? I'm always excited to discuss new opportunities and innovative projects.
+            </p>
 
-      <div className="container mx-auto max-w-4xl px-4 relative z-10">
-        <div className="text-center space-y-8 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-serif mb-4">
-            Let's Connect
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Ready to collaborate on something amazing? I'm always excited to discuss new opportunities and innovative projects.
-          </p>
-
-          {/* Social Links */}
-          <div className="flex justify-center space-x-6 pt-8">
-            <a 
-              href="https://github.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 bg-gray-800 hover:bg-warm-red-600 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
+            <Button 
+              className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full transition-all duration-300 mb-12"
             >
-              <Github className="w-6 h-6" />
-            </a>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 bg-gray-800 hover:bg-warm-red-600 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a 
-              href="mailto:arvind@example.com"
-              className="p-4 bg-gray-800 hover:bg-warm-red-600 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
+              GET IN TOUCH →
+            </Button>
           </div>
 
-          {/* Contact Button */}
-          <div className="pt-8">
-            <Button 
-              className="bg-warm-red-600 hover:bg-warm-red-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105"
-            >
-              Get In Touch
-            </Button>
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wide">
+                CONNECT
+              </h3>
+              <div className="space-y-3">
+                <a 
+                  href="https://github.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  <span>GITHUB</span>
+                </a>
+                <a 
+                  href="https://linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  <Linkedin className="w-5 h-5" />
+                  <span>LINKEDIN</span>
+                </a>
+                <a 
+                  href="mailto:arvind@example.com"
+                  className="flex items-center space-x-3 text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>EMAIL</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © 2025 Arvind Reddy. Built with passion and precision.
-          </p>
+        <div className="mt-24 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+          <p>© 2025 ARVIND REDDY. BUILT WITH PASSION AND PRECISION.</p>
           
-          {/* Scroll to Top Button */}
-          <Button
+          <button
             onClick={scrollToTop}
-            variant="ghost"
-            size="sm" 
-            className="mt-4 md:mt-0 text-gray-400 hover:text-white hover:bg-gray-800 rounded-full p-3"
+            className="mt-4 md:mt-0 text-gray-500 hover:text-gray-900 transition-colors uppercase tracking-wide"
           >
-            <ArrowUp className="w-4 h-4" />
-          </Button>
+            BACK TO TOP ↑
+          </button>
         </div>
       </div>
     </footer>

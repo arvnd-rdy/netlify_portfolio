@@ -9,53 +9,67 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen bg-hero-gradient flex items-center justify-center px-4 relative overflow-hidden">
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text */}
-          <div className="space-y-8 animate-slide-in-left">
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-serif text-gray-900 leading-tight">
-                Arvind Reddy
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-700 font-light">
-                Full Stack / AI / ML
+    <section className="min-h-screen bg-gray-50 flex flex-col relative overflow-hidden">
+      {/* Navigation */}
+      <nav className="flex justify-between items-center p-8 text-sm text-gray-600">
+        <div>Full Stack & AI/ML Developer</div>
+        <div className="flex space-x-8">
+          <a href="#about" className="hover:text-gray-900 transition-colors">About</a>
+          <a href="#skills" className="hover:text-gray-900 transition-colors">Skills</a>
+          <a href="#projects" className="hover:text-gray-900 transition-colors">Projects</a>
+          <a href="#experience" className="hover:text-gray-900 transition-colors">Experience</a>
+          <a href="#contact" className="hover:text-gray-900 transition-colors">Contact</a>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <div className="flex-1 flex items-center justify-center px-8">
+        <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Side - Text */}
+          <div className="space-y-8">
+            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black text-gray-900 leading-none tracking-tight">
+              ARVIND REDDY
+            </h1>
+            
+            <div className="space-y-4 max-w-md">
+              <p className="text-gray-600 leading-relaxed">
+                Open to job opportunities worldwide.
               </p>
-              <p className="text-lg text-gray-600 max-w-md leading-relaxed">
-                Crafting intelligent solutions with modern technology, bridging the gap between complex algorithms and beautiful user experiences.
+              <p className="text-gray-600 leading-relaxed">
+                Passionate about building polished, intuitive, and thoughtful digital experiences that leave a mark.
               </p>
             </div>
-            
+
             <Button 
               onClick={scrollToAbout}
-              className="group bg-gray-900 hover:bg-gray-800 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full transition-all duration-300"
             >
-              Explore My World
-              <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
+              CONTACT →
             </Button>
           </div>
 
-          {/* Right Column - Profile Image */}
-          <div className="flex justify-center animate-slide-in-right">
+          {/* Right Side - Image */}
+          <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white">
-                <img 
-                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  alt="Arvind Reddy - Full Stack & AI/ML Developer"
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-warm-red-200 to-warm-red-300 rounded-full opacity-20 animate-pulse"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                alt="Arvind Reddy"
+                className="w-80 h-96 object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
-        </div>
+      {/* Bottom Right Text */}
+      <div className="absolute bottom-8 right-8 text-right">
+        <div className="text-gray-400 text-sm">AVAILABLE FOR WORK</div>
+        <div className="text-4xl font-black text-gray-900">JUN'25</div>
+      </div>
+
+      {/* Small Arrow Indicator */}
+      <div className="absolute bottom-8 left-8">
+        <ArrowDown className="w-4 h-4 text-gray-400" />
       </div>
     </section>
   );

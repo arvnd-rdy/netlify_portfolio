@@ -22,39 +22,37 @@ const SkillsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto max-w-6xl px-4">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">
-            Skills & Expertise
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A comprehensive toolkit for building modern, intelligent applications
-          </p>
-        </div>
+    <section id="skills" className="py-32 bg-gray-50">
+      <div className="container mx-auto max-w-6xl px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
+              SKILLS &<br />EXPERTISE
+            </h2>
+            <p className="text-gray-600 leading-relaxed max-w-md">
+              A comprehensive toolkit for building modern, intelligent applications with precision and creativity.
+            </p>
+          </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {Object.entries(skills).map(([category, skillList], index) => (
-            <div 
-              key={category}
-              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 font-serif">
-                {category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skillList.map((skill) => (
-                  <span 
-                    key={skill}
-                    className="px-3 py-1 bg-warm-red-50 text-warm-red-800 rounded-full text-sm font-medium hover:bg-warm-red-100 transition-colors duration-200 cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {Object.entries(skills).map(([category, skillList]) => (
+              <div key={category} className="space-y-4">
+                <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wide">
+                  {category}
+                </h3>
+                <div className="space-y-2">
+                  {skillList.map((skill) => (
+                    <div 
+                      key={skill}
+                      className="text-gray-600 hover:text-gray-900 transition-colors cursor-default"
+                    >
+                      {skill}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
