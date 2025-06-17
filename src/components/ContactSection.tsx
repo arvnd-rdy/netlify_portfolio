@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const ContactSection = () => {
-  const [ref, isIntersecting] = useIntersectionObserver();
+  const { ref, isIntersecting } = useIntersectionObserver();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

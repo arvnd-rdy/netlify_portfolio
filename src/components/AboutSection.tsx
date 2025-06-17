@@ -1,9 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const AboutSection = () => {
-  const [ref, isIntersecting] = useIntersectionObserver();
+  const { ref, isIntersecting } = useIntersectionObserver();
 
   return (
     <section id="about" className="py-32 bg-white">

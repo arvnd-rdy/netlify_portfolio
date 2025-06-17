@@ -1,8 +1,7 @@
-
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const ExperienceSection = () => {
-  const [ref, isIntersecting] = useIntersectionObserver();
+  const { ref, isIntersecting } = useIntersectionObserver();
 
   const experiences = [
     {

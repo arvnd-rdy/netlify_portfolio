@@ -1,9 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const ProjectsSection = () => {
-  const [ref, isIntersecting] = useIntersectionObserver();
+  const { ref, isIntersecting } = useIntersectionObserver();
 
   const projects = [
     {

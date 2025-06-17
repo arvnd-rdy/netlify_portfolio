@@ -1,8 +1,7 @@
-
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const SkillsSection = () => {
-  const [ref, isIntersecting] = useIntersectionObserver();
+  const { ref, isIntersecting } = useIntersectionObserver();
 
   const skills = {
     "Languages": [
