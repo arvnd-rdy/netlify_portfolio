@@ -1,4 +1,5 @@
 
+
 export const fadeInUp = {
   hidden: { 
     opacity: 0, 
@@ -100,3 +101,4 @@ export const slideInHorizontal = {
     }
   }
 };
+
