@@ -8,9 +8,9 @@ import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen">
       <HeroSection />
-      <div className="relative z-10">
+      <div className="relative z-10 mt-[100vh]">
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />

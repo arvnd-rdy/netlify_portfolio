@@ -1,12 +1,10 @@
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
 
 const SkillsSection = () => {
   const { ref, isInView } = useScrollAnimation();
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [1000, 2000], [0, -150]);
 
   const skills = {
     "Languages": [
@@ -33,7 +31,6 @@ const SkillsSection = () => {
     <motion.section 
       id="skills" 
       className="py-32 bg-gray-50 relative z-10"
-      style={{ y }}
     >
       <motion.div 
         className="container mx-auto max-w-6xl px-8" 

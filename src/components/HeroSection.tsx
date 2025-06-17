@@ -2,15 +2,11 @@
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, -150]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -250]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -26,8 +22,7 @@ const HeroSection = () => {
 
   return (
     <motion.section 
-      className="min-h-screen bg-gray-50 flex flex-col relative overflow-hidden fixed top-0 left-0 right-0 z-0"
-      style={{ y: y1, opacity }}
+      className="min-h-screen bg-gray-50 flex flex-col fixed top-0 left-0 right-0 z-0"
     >
       {/* Navigation */}
       <motion.nav 
@@ -66,10 +61,7 @@ const HeroSection = () => {
       <div className="flex-1 flex items-center justify-center px-8">
         <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Text */}
-          <motion.div 
-            className="space-y-8"
-            style={{ y: y2 }}
-          >
+          <motion.div className="space-y-8">
             <motion.h1 
               className="text-7xl md:text-8xl lg:text-9xl font-black text-gray-900 leading-none tracking-tight"
               initial={{ opacity: 0, y: 50 }}
@@ -132,7 +124,6 @@ const HeroSection = () => {
           {/* Right Side - Image */}
           <motion.div 
             className="flex justify-center lg:justify-end"
-            style={{ y: y2 }}
             variants={fadeInRight}
             initial="hidden"
             animate="visible"
