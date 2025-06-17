@@ -2,11 +2,11 @@
 import { useEffect, useRef } from 'react';
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
 
-export const useScrollAnimation = (amount = 0.1, margin = '-50px') => {
+export const useScrollAnimation = (amount = 0.1, rootMargin = '-50px') => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { 
     amount, 
-    margin,
+    margin: rootMargin,
     once: true 
   });
 
