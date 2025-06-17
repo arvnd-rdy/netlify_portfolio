@@ -8,8 +8,9 @@ import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 300], [0, -50]);
-  const y2 = useTransform(scrollY, [0, 300], [0, -100]);
+  const y1 = useTransform(scrollY, [0, 500], [0, -150]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -250]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -24,7 +25,10 @@ const HeroSection = () => {
   const navItems = ['About', 'Skills', 'Projects', 'Experience', 'Contact'];
 
   return (
-    <section className="min-h-screen bg-gray-50 flex flex-col relative overflow-hidden">
+    <motion.section 
+      className="min-h-screen bg-gray-50 flex flex-col relative overflow-hidden fixed top-0 left-0 right-0 z-0"
+      style={{ y: y1, opacity }}
+    >
       {/* Navigation */}
       <motion.nav 
         className="flex justify-between items-center p-8 text-sm text-gray-600"
@@ -64,7 +68,7 @@ const HeroSection = () => {
           {/* Left Side - Text */}
           <motion.div 
             className="space-y-8"
-            style={{ y: y1 }}
+            style={{ y: y2 }}
           >
             <motion.h1 
               className="text-7xl md:text-8xl lg:text-9xl font-black text-gray-900 leading-none tracking-tight"
@@ -175,7 +179,7 @@ const HeroSection = () => {
           <ArrowDown className="w-4 h-4 text-gray-400" />
         </motion.div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

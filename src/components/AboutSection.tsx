@@ -1,14 +1,20 @@
 
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
 
 const AboutSection = () => {
   const { ref, isInView } = useScrollAnimation();
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, -200]);
 
   return (
-    <section id="about" className="py-32 bg-white">
+    <motion.section 
+      id="about" 
+      className="py-32 bg-white relative z-10 mt-[100vh]"
+      style={{ y }}
+    >
       <motion.div 
         className="container mx-auto max-w-6xl px-8" 
         ref={ref}
@@ -68,7 +74,7 @@ const AboutSection = () => {
           </motion.div>
         </div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 
