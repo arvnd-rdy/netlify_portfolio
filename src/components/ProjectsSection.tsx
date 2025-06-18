@@ -127,7 +127,7 @@ const ProjectsSection: React.FC = () => {
     if (!listRef.current) return;
     const list = listRef.current;
     const items = Array.from(list.children);
-    const cols = items.map((_, i) => (i === active ? "20fr" : "1fr")).join(" ");
+    const cols = items.map((_, i) => (i === active ? "10fr" : "1fr")).join(" ");
     list.style.gridTemplateColumns = cols;
   }, [active]);
 
@@ -156,10 +156,10 @@ const ProjectsSection: React.FC = () => {
       </p>
       <ul
         ref={listRef}
-        className="grid gap-2 max-w-5xl w-full mx-auto"
+        className="grid gap-2 max-w-7xl w-full mx-auto"
         style={{
           gridTemplateColumns: projects.map((_, i) => (i === active ? "10fr" : "1fr")).join(" "),
-          height: "clamp(300px, 40dvh, 474px)",
+          height: "clamp(390px, 52dvh, 616px)",
           transition: "grid-template-columns 0.6s cubic-bezier(.4,0,.2,1)",
         }}
       >
@@ -191,7 +191,6 @@ const ProjectsSection: React.FC = () => {
               <div className={`transition-opacity duration-500 ${active === i ? "opacity-80" : "opacity-0"}`}>
                 <p className="text-sm mb-8 max-w-xs">{proj.description}</p>
               </div>
-              <div className={`transition-opacity duration-500 ${active === i ? "opacity-100" : "opacity-60"} absolute bottom-4 left-6`}>{proj.svg}</div>
               <a
                 href={proj.link}
                 className={`absolute bottom-4 right-6 flex items-center gap-2 text-black dark:text-white transition-opacity duration-500 ${active === i ? "opacity-100" : "opacity-0"}`}
@@ -212,6 +211,28 @@ const ProjectsSection: React.FC = () => {
             </article>
           </li>
         ))}
+        {/* All Projects Card */}
+        <li
+          tabIndex={0}
+          className={
+            "relative overflow-hidden min-w-[60px] border border-gray-900 bg-black rounded-lg cursor-pointer transition-all duration-500 group focus:outline-none flex items-center justify-center"
+          }
+          style={{
+            zIndex: 1,
+            height: "100%",
+          }}
+          onClick={() => { window.location.href = '/projects'; }}
+        >
+          <span
+            className="absolute top-4 left-6 origin-left rotate-90 text-base font-light uppercase text-white opacity-100 select-none pointer-events-none"
+            style={{
+              whiteSpace: "nowrap",
+              fontFamily: "monospace",
+            }}
+          >
+            ALL PROJECTS
+          </span>
+        </li>
       </ul>
     </section>
   );
