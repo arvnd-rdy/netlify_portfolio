@@ -65,15 +65,16 @@ const AboutSection = () => {
               variants={staggerContainer}
             >
               <motion.p variants={staggerItem}>
-                I'm a passionate Full Stack Developer and AI/ML Engineer with a deep love for creating 
-                innovative solutions that make a real impact. My journey in technology spans across 
-                building scalable web applications, implementing machine learning models, and crafting 
-                seamless user experiences.
+              Hey! I’m someone who just really enjoys building cool stuff with tech.
+              I work across full-stack web dev, AI/ML, and XR — so one day I might be coding a web app, and the next I’m fine-tuning a model or playing around in Unity.
               </motion.p>
               <motion.p variants={staggerItem}>
-                With expertise in modern frameworks and cutting-edge AI technologies, I thrive on 
-                solving complex problems and turning ideas into reality. I believe in writing clean, 
-                efficient code and staying at the forefront of technological advancement.
+              I like making things that actually help people or feel fun to use.
+Whether it’s a smart tool, a clean UI, or an immersive 3D scene, I’m all in.
+Always curious, always learning — especially when it comes to how AI is changing everything.
+              </motion.p>
+              <motion.p variants={staggerItem}>
+              Right now, I’m looking for full-time roles where I can keep creating, growing, and working with people who love what they do.
               </motion.p>
             </motion.div>
             <motion.div 

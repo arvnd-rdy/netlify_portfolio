@@ -93,7 +93,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
               >
-                ARVIND
+                ARAVIND
               </motion.span>
               <br />
               <motion.span
@@ -116,13 +116,14 @@ const HeroSection = () => {
                 className="text-gray-600 leading-relaxed"
                 variants={fadeInUp}
               >
-                Open to job opportunities worldwide.
+                Open to job opportunities.
               </motion.p>
               <motion.p 
                 className="text-gray-600 leading-relaxed"
                 variants={fadeInUp}
               >
-                Passionate about building polished, intuitive, and thoughtful digital experiences that leave a mark.
+                I build websites, AI tools, and 3D experiences that are simple, smart, and fun to use.
+                Always curious, always creating — let's make something cool.
               </motion.p>
             </motion.div>
 

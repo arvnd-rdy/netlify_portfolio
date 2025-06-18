@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { fadeInUp, staggerContainer, staggerItem } from "@/utils/animations";
@@ -11,16 +10,28 @@ const About = () => {
 
   const education = [
     {
-      degree: "Master of Science in Computer Science",
-      school: "Stanford University",
-      year: "2019",
-      details: "Specialized in Artificial Intelligence and Machine Learning"
+      degree: "Master's degree, Applied computing",
+      school: "University of Windsor",
+      year: "Sep 2024 - Sep 2026",
+      details: ""
     },
     {
-      degree: "Bachelor of Technology in Computer Engineering", 
-      school: "Indian Institute of Technology",
-      year: "2017",
-      details: "Graduated Magna Cum Laude with focus on Software Engineering"
+      degree: "Bachelor of Technology - BTech, Computer Science",
+      school: "Lovely Professional University",
+      year: "2019 - 2023",
+      details: "Grade: 8.6"
+    },
+    {
+      degree: "INTER, MPC",
+      school: "Sri Chaitanya College of Education",
+      year: "Mar 2017 - 2019",
+      details: "Grade: 9.6"
+    },
+    {
+      degree: "St. Peter's Model School - India",
+      school: "St. Peter's Model School - India",
+      year: "Jun 2010 - May 2015",
+      details: "Grade: 9.3"
     }
   ];
 

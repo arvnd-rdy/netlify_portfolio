@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
@@ -8,24 +7,52 @@ const SkillsSection = () => {
 
   const skillCategories = [
     {
-      title: "FRONTEND",
-      skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+      title: "Full Stack Development",
+      skills: [
+        "HTML", "CSS", "JavaScript",
+        "React", "Node.js", "Express",
+        "MongoDB", "REST APIs",
+        "Git", "GitHub", "VS Code",
+        "Docker (for smoother dev + deployment)"
+      ],
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "BACKEND", 
-      skills: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL"],
+      title: "Programming Languages & Core",
+      skills: [
+        "Python (my go-to for AI stuff)",
+        "C", "C++"
+      ],
       color: "from-green-500 to-emerald-500"
     },
     {
-      title: "AI/ML",
-      skills: ["TensorFlow", "PyTorch", "OpenAI API", "Scikit-learn", "Pandas"],
+      title: "AI / Machine Learning",
+      skills: [
+        "Python libraries — NumPy, Pandas, scikit-learn",
+        "Hugging Face, Transformers",
+        "Fine-tuning, RAG pipelines, Vector DBs",
+        "Model training, evaluation, and deployment"
+      ],
       color: "from-purple-500 to-pink-500"
     },
     {
-      title: "TOOLS",
-      skills: ["Docker", "AWS", "Git", "Figma", "Vercel"],
+      title: "Dev Tools & Workflow",
+      skills: [
+        "Git & GitHub",
+        "Postman, MongoDB Compass",
+        "Docker",
+        "Netlify, Render"
+      ],
       color: "from-orange-500 to-red-500"
+    },
+    {
+      title: "3D / XR Development",
+      skills: [
+        "Unity, Blender",
+        "AR/VR experiences",
+        "Scene design, lighting, basic animation"
+      ],
+      color: "from-pink-500 to-yellow-500"
     }
   ];
 
@@ -50,12 +77,6 @@ const SkillsSection = () => {
               <motion.span variants={staggerItem} className="block">TECH</motion.span>
               <motion.span variants={staggerItem} className="block text-gray-400">STACK</motion.span>
             </motion.h2>
-            <motion.p 
-              className="text-gray-600 leading-relaxed text-xl max-w-md"
-              variants={staggerItem}
-            >
-              Cutting-edge technologies and tools I use to build exceptional digital experiences.
-            </motion.p>
             
             {/* Stats */}
             <motion.div 
@@ -75,7 +96,7 @@ const SkillsSection = () => {
 
           {/* Right Side - Skills Grid */}
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid md:grid-cols-1 lg:grid-cols-2 gap-6"
             variants={staggerContainer}
           >
             {skillCategories.map((category, index) => (
