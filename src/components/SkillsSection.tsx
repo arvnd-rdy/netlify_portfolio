@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
@@ -5,85 +6,112 @@ import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/
 const SkillsSection = () => {
   const { ref, isInView } = useScrollAnimation();
 
-  const skills = {
-    "Languages": [
-      "JavaScript", "TypeScript", "Python", "Java", "C++", "SQL"
-    ],
-    "Frontend": [
-      "React", "Vue.js", "Angular", "Next.js", "Tailwind CSS", "Sass"
-    ],
-    "Backend": [
-      "Node.js", "Express", "Django", "FastAPI", "Spring Boot", "GraphQL"
-    ],
-    "AI/ML": [
-      "TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy", "OpenAI API"
-    ],
-    "Database": [
-      "PostgreSQL", "MongoDB", "Redis", "Firebase", "MySQL", "Supabase"
-    ],
-    "Tools": [
-      "Docker", "AWS", "Git", "Vercel", "Figma", "VS Code"
-    ]
-  };
+  const skillCategories = [
+    {
+      title: "FRONTEND",
+      skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "BACKEND", 
+      skills: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL"],
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      title: "AI/ML",
+      skills: ["TensorFlow", "PyTorch", "OpenAI API", "Scikit-learn", "Pandas"],
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      title: "TOOLS",
+      skills: ["Docker", "AWS", "Git", "Figma", "Vercel"],
+      color: "from-orange-500 to-red-500"
+    }
+  ];
 
   return (
     <motion.section 
       id="skills" 
-      className="min-h-screen bg-gray-50 relative z-10 scroll-mt-28 flex items-center"
+      className="min-h-screen bg-white relative z-10 scroll-mt-28 flex items-center"
     >
       <motion.div 
-        className="container mx-auto max-w-6xl px-8 w-full" 
+        className="container mx-auto max-w-7xl px-8 w-full" 
         ref={ref}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <motion.div variants={fadeInLeft}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          {/* Left Side - Header */}
+          <motion.div variants={fadeInLeft} className="space-y-8">
             <motion.h2 
-              className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight"
+              className="text-6xl md:text-8xl font-black text-gray-900 leading-tight"
               variants={staggerContainer}
             >
-              <motion.span variants={staggerItem} className="block">SKILLS &</motion.span>
-              <motion.span variants={staggerItem} className="block">EXPERTISE</motion.span>
+              <motion.span variants={staggerItem} className="block">TECH</motion.span>
+              <motion.span variants={staggerItem} className="block text-gray-400">STACK</motion.span>
             </motion.h2>
             <motion.p 
-              className="text-gray-600 leading-relaxed max-w-md"
+              className="text-gray-600 leading-relaxed text-xl max-w-md"
               variants={staggerItem}
             >
-              A comprehensive toolkit for building modern, intelligent applications with precision and creativity.
+              Cutting-edge technologies and tools I use to build exceptional digital experiences.
             </motion.p>
+            
+            {/* Stats */}
+            <motion.div 
+              className="grid grid-cols-2 gap-8"
+              variants={staggerContainer}
+            >
+              <motion.div variants={staggerItem}>
+                <div className="text-4xl font-black text-gray-900">50+</div>
+                <div className="text-gray-600 uppercase tracking-wide text-sm">Technologies</div>
+              </motion.div>
+              <motion.div variants={staggerItem}>
+                <div className="text-4xl font-black text-gray-900">5+</div>
+                <div className="text-gray-600 uppercase tracking-wide text-sm">Years Experience</div>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
+          {/* Right Side - Skills Grid */}
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
             variants={staggerContainer}
           >
-            {Object.entries(skills).map(([category, skillList], categoryIndex) => (
+            {skillCategories.map((category, index) => (
               <motion.div 
-                key={category} 
-                className="space-y-4"
+                key={category.title}
+                className="group"
                 variants={staggerItem}
-                whileHover={{ y: -5 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wide">
-                  {category}
-                </h3>
-                <motion.div 
-                  className="space-y-2"
-                  variants={staggerContainer}
-                >
-                  {skillList.map((skill, skillIndex) => (
-                    <motion.div 
-                      key={skill}
-                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 cursor-default"
-                      variants={staggerItem}
-                      whileHover={{ x: 8, color: "#111827" }}
-                    >
-                      {skill}
-                    </motion.div>
-                  ))}
-                </motion.div>
+                <div className="bg-gray-50 p-8 h-full relative overflow-hidden">
+                  {/* Background Gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                  
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-black text-gray-900 mb-6 uppercase tracking-wide">
+                      {category.title}
+                    </h3>
+                    <div className="space-y-3">
+                      {category.skills.map((skill, skillIndex) => (
+                        <motion.div 
+                          key={skill}
+                          className="flex items-center space-x-3 group/skill"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                          transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
+                        >
+                          <div className={`w-2 h-2 bg-gradient-to-r ${category.color} rounded-full`} />
+                          <span className="text-gray-700 group-hover/skill:text-gray-900 transition-colors font-medium">
+                            {skill}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </motion.div>

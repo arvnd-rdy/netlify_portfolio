@@ -1,7 +1,10 @@
+
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/utils/animations";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const AboutSection = () => {
   const { ref, isInView } = useScrollAnimation();
@@ -74,10 +77,11 @@ const AboutSection = () => {
               </motion.p>
             </motion.div>
             <motion.div 
-              className="pt-8"
-              variants={staggerItem}
+              className="flex gap-4 pt-8"
+              variants={staggerContainer}
             >
               <motion.div
+                variants={staggerItem}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -87,6 +91,21 @@ const AboutSection = () => {
                   DOWNLOAD RESUME →
                 </Button>
               </motion.div>
+              <Link to="/about">
+                <motion.div
+                  variants={staggerItem}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button 
+                    variant="outline"
+                    className="border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-3 rounded-full transition-all duration-300 group"
+                  >
+                    LEARN MORE 
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </motion.div>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
