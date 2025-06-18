@@ -18,9 +18,9 @@ const ContactSection = () => {
   ];
 
   return (
-    <footer id="contact" className="py-32 bg-white relative z-10 scroll-mt-28">
+    <footer id="contact" className="min-h-screen bg-white relative z-10 scroll-mt-28 flex items-center">
       <motion.div 
-        className="container mx-auto max-w-6xl px-8" 
+        className="container mx-auto max-w-6xl px-8 w-full" 
         ref={ref}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}

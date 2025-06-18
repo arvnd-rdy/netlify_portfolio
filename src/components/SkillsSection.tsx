@@ -29,10 +29,10 @@ const SkillsSection = () => {
   return (
     <motion.section 
       id="skills" 
-      className="py-32 bg-gray-50 relative z-10 scroll-mt-28"
+      className="min-h-screen bg-gray-50 relative z-10 scroll-mt-28 flex items-center"
     >
       <motion.div 
-        className="container mx-auto max-w-6xl px-8" 
+        className="container mx-auto max-w-6xl px-8 w-full" 
         ref={ref}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
