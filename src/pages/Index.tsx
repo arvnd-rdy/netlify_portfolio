@@ -1,3 +1,4 @@
+
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
@@ -7,13 +8,13 @@ import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   return (
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
-      <section className="snap-start h-screen sticky top-0 z-0"><HeroSection /></section>
-      <section className="snap-start h-screen sticky top-0 z-10"><AboutSection /></section>
-      <section className="snap-start h-screen sticky top-0 z-20"><SkillsSection /></section>
-      <section className="snap-start h-screen sticky top-0 z-30"><ProjectsSection /></section>
-      <section className="snap-start h-screen sticky top-0 z-40"><ExperienceSection /></section>
-      <section className="snap-start h-screen sticky top-0 z-50"><ContactSection /></section>
+    <div className="overflow-y-auto">
+      <section className="min-h-screen"><HeroSection /></section>
+      <section className="min-h-screen"><AboutSection /></section>
+      <section className="min-h-screen"><SkillsSection /></section>
+      <section className="min-h-screen"><ProjectsSection /></section>
+      <section className="min-h-screen"><ExperienceSection /></section>
+      <section className="min-h-screen"><ContactSection /></section>
     </div>
   );
 };
