@@ -150,9 +150,9 @@ const ProjectsSection: React.FC = () => {
       className="min-h-screen w-full flex flex-col items-center justify-center py-16 relative z-10"
       style={gridBg}
     >
-      <h1 className="fluid text-4xl md:text-6xl font-black mb-4 text-center">the craft of ui</h1>
+      <h1 className="fluid text-4xl md:text-6xl font-black mb-4 text-center">Projects</h1>
       <p className="max-w-2xl text-center text-base md:text-lg text-gray-700 mb-12 opacity-80 font-mono">
-        Unlock the art and science of interface development. This isn't just about pushing pixels or following documentation — it's about mastering the tools, understanding the nuances, and shaping experiences with intention.
+        Explore a selection of my real-world projects, spanning web development, AI, and creative technology. Each project highlights my skills, passion, and commitment to building impactful solutions.
       </p>
       <ul
         ref={listRef}

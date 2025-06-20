@@ -1,9 +1,8 @@
-
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import ExperienceSection from "@/components/ExperienceSection";
+// import ExperienceSection from "@/components/ExperienceSection";
 import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
@@ -13,7 +12,7 @@ const Index = () => {
       <section className="min-h-screen"><AboutSection /></section>
       <section className="min-h-screen"><SkillsSection /></section>
       <section className="min-h-screen"><ProjectsSection /></section>
-      <section className="min-h-screen"><ExperienceSection /></section>
+      {/* <section className="min-h-screen"><ExperienceSection /></section> */}
       <section className="min-h-screen"><ContactSection /></section>
     </div>
   );

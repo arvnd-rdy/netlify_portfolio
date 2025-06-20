@@ -134,10 +134,12 @@ const HeroSection = () => {
               transition={{ delay: 1.4 }}
             >
               <Button 
-                onClick={scrollToAbout}
+                asChild
                 className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full transition-all duration-500 hover:scale-105 hover:shadow-lg"
               >
-                CONTACT →
+                <a href="https://www.linkedin.com/in/arvnd-rdy/" target="_blank" rel="noopener noreferrer">
+                  CONTACT →
+                </a>
               </Button>
             </motion.div>
           </motion.div>

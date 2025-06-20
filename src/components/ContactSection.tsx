@@ -47,9 +47,12 @@ const ContactSection = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Button 
+                asChild
                 className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full transition-all duration-300 mb-12 hover:shadow-lg"
               >
-                GET IN TOUCH →
+                <a href="https://www.linkedin.com/in/arvnd-rdy/" target="_blank" rel="noopener noreferrer">
+                  GET IN TOUCH →
+                </a>
               </Button>
             </motion.div>
           </motion.div>
