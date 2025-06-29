@@ -114,8 +114,8 @@ const Projects: React.FC = () => {
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.title}
+                        src={project.image}
+                        alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -126,23 +126,23 @@ const Projects: React.FC = () => {
                   <div className="flex items-center justify-between mb-3">
                     <span className="inline-block px-3 py-1 text-xs font-mono uppercase tracking-wide bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full">
                       {project.tech.join(", ")}
-                    </span>
+                        </span>
                     <span className="text-xs font-mono text-gray-500 dark:text-gray-400">
                       {new Date(project.date).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'short',
                         day: 'numeric'
                       })}
-                    </span>
-                  </div>
+                          </span>
+                        </div>
                   {/* Title */}
                   <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                    {project.title}
-                  </h3>
+                        {project.title}
+                      </h3>
                   {/* Description */}
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
-                    {project.description}
-                  </p>
+                        {project.description}
+                      </p>
                   {/* View Project */}
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono text-gray-500 dark:text-gray-400">
@@ -150,9 +150,9 @@ const Projects: React.FC = () => {
                     </span>
                     <span className="text-sm font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       →
-                    </span>
-                  </div>
-                </div>
+                          </span>
+                      </div>
+                    </div>
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </article>
