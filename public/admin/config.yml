@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Tech Stack", name: "tech", widget: "list" }
+      - { label: "Link", name: "link", widget: "string", required: false }
+      - { label: "Date", name: "date", widget: "datetime" }
+  - name: "about"
+    label: "About"
+    files:
+      - label: "About Section"
+        name: "about"
+        file: "content/about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+  - name: "skills"
+    label: "Skills"
+    files:
+      - label: "Skills Section"
+        name: "skills"
+        file: "content/skills.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Skills List", name: "skills", widget: "list" }
+  - name: "hero"
+    label: "Hero"
+    files:
+      - label: "Hero Section"
+        name: "hero"
+        file: "content/hero.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+  - name: "contact"
+    label: "Contact"
+    files:
+      - label: "Contact Section"
+        name: "contact"
+        file: "content/contact.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" } 

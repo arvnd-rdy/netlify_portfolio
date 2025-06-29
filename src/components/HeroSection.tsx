@@ -64,15 +64,27 @@ const HeroSection = () => {
           animate="visible"
         >
           {navItems.map((item, index) => (
-            <motion.a 
-              key={item}
-              href={`#${item.toLowerCase()}`} 
-              className="hover:text-gray-900 transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gray-900 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              variants={staggerItem}
-              whileHover={{ y: -2 }}
-            >
-              {item}
-            </motion.a>
+            item === "Blog" ? (
+              <motion.a
+                key={item}
+                href="/blog"
+                className="hover:text-gray-900 transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gray-900 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                variants={staggerItem}
+                whileHover={{ y: -2 }}
+              >
+                {item}
+              </motion.a>
+            ) : (
+              <motion.a 
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="hover:text-gray-900 transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gray-900 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                variants={staggerItem}
+                whileHover={{ y: -2 }}
+              >
+                {item}
+              </motion.a>
+            )
           ))}
         </motion.div>
       </motion.nav>
