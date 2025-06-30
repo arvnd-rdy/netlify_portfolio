@@ -70,7 +70,7 @@ const AboutSection = () => {
               </motion.p>
               <motion.p variants={staggerItem}>
               I like making things that actually help people or feel fun to use.
-Whether it’s a smart tool, a clean UI, or an immersive 3D scene, I’m all in.
+Whether it’s a smart tool, a clean UI, or an immersive 3D stuff, I’m all in.
 Always curious, always learning — especially when it comes to how AI is changing everything.
               </motion.p>
               <motion.p variants={staggerItem}>

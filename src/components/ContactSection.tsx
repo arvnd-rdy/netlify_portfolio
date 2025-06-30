@@ -58,7 +58,7 @@ const ContactSection = () => {
           </motion.div>
 
           <motion.div 
-            className="space-y-8"
+            className="space-y-8 flex flex-col lg:flex-row lg:space-y-0 lg:space-x-12"
             variants={fadeInRight}
           >
             <motion.div 

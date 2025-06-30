@@ -1,108 +1,114 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
-  SiHtml5, SiCss3, SiJavascript, SiPython, SiC, SiCplusplus, SiReact, SiNodedotjs, SiExpress, SiNumpy, SiPandas, SiScikitlearn, SiGithub, SiPostman, SiMongodb, SiDocker, SiNetlify, SiUnity, SiBlender, SiVscodium
-} from "react-icons/si";
-import { FaGitAlt } from "react-icons/fa";
+  SiJavascript, SiTypescript, SiPython, SiCplusplus, SiHtml5, SiCss3, SiReact, SiRedux, SiFramer, SiNodedotjs, SiExpress, SiDjango, SiSpringboot, SiGraphql, SiPostgresql, SiMysql, SiMongodb, SiNetlify, SiDocker, SiGithubactions, SiNumpy, SiPandas, SiScikitlearn, SiHuggingface, SiUnity, SiBlender
+} from 'react-icons/si';
+import { ChevronRight, Cloud } from 'lucide-react';
 
-const skillTabs = [
+const skillGroups = [
   {
-    label: "Languages",
+    title: 'Programming Languages',
+    shadow: 'shadow-[0_4px_24px_0_rgba(99,102,241,0.15)]',
     skills: [
-      { name: "HTML", icon: <SiHtml5 color="#E34F26" /> },
-      { name: "CSS", icon: <SiCss3 color="#1572B6" /> },
-      { name: "JavaScript", icon: <SiJavascript color="#F7DF1E" /> },
-      { name: "Python", icon: <SiPython color="#3776AB" /> },
-      { name: "C", icon: <SiC color="#A8B9CC" /> },
-      { name: "C++", icon: <SiCplusplus color="#00599C" /> }
+      { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+      { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
+      { name: 'Python', icon: SiPython, color: '#3776AB' },
+      { name: 'C / C++', icon: SiCplusplus, color: '#00599C' }
     ]
   },
   {
-    label: "Frameworks/Libraries",
+    title: 'Front-End',
+    shadow: 'shadow-[0_4px_24px_0_rgba(59,130,246,0.15)]',
     skills: [
-      { name: "React", icon: <SiReact color="#61DAFB" /> },
-      { name: "Node.js", icon: <SiNodedotjs color="#339933" /> },
-      { name: "Express", icon: <SiExpress color="#000000" /> }
+      { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
+      { name: 'CSS3', icon: SiCss3, color: '#1572B6' },
+      { name: 'React', icon: SiReact, color: '#61DAFB' },
+      { name: 'Redux', icon: SiRedux, color: '#764ABC' },
+      { name: 'Framer Motion', icon: SiFramer, color: '#0055FF' }
     ]
   },
   {
-    label: "AI / ML",
+    title: 'Back-End',
+    shadow: 'shadow-[0_4px_24px_0_rgba(16,185,129,0.15)]',
     skills: [
-      { name: "NumPy", icon: <SiNumpy color="#013243" /> },
-      { name: "Pandas", icon: <SiPandas color="#150458" /> },
-      { name: "scikit-learn", icon: <SiScikitlearn color="#F7931E" /> },
-      { name: "Hugging Face Transformers", icon: null },
-
-      { name: "Fine-tuning", icon: null },
-      { name: "RAG pipelines", icon: null },
-      { name: "Vector DBs", icon: null },
-      { name: "Model training", icon: null },
-
-      { name: "deployment", icon: null }
+      { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+      { name: 'Express', icon: SiExpress, color: '#000000' },
+      { name: 'Django', icon: SiDjango, color: '#092E20' },
+      { name: 'Spring Boot', icon: SiSpringboot, color: '#6DB33F' },
+      { name: 'GraphQL', icon: SiGraphql, color: '#E10098' }
     ]
   },
   {
-    label: "Dev Tools & Workflow",
+    title: 'Databases & Storage',
+    shadow: 'shadow-[0_4px_24px_0_rgba(251,146,60,0.15)]',
     skills: [
-      { name: "Git", icon: <FaGitAlt color="#F05032" /> },
-      { name: "GitHub", icon: <SiGithub color="#181717" /> },
-      { name: "VS Code", icon: <SiVscodium color="#22A6F2" /> },
-      { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
-      { name: "MongoDB Compass", icon: <SiMongodb color="#47A248" /> },
-      { name: "Docker", icon: <SiDocker color="#2496ED" /> },
-      { name: "Netlify", icon: <SiNetlify color="#00C7B7" /> },
-      { name: "Render", icon: null }
+      { name: 'PostgreSQL', icon: SiPostgresql, color: '#336791' },
+      { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
+      { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+      { name: 'DynamoDB', icon: Cloud, color: '#FF9900' },
+      { name: 'Pinecone / FAISS', icon: Cloud, color: '#0089D6' }
     ]
   },
   {
-    label: "3D / XR Development",
+    title: 'Cloud & DevOps',
+    shadow: 'shadow-[0_4px_24px_0_rgba(14,165,233,0.15)]',
     skills: [
-      { name: "Unity", icon: <SiUnity color="#000000" /> },
-      { name: "Blender", icon: <SiBlender color="#F5792A" /> },
-      { name: "AR/VR experiences", icon: null },
-      { name: "Scene design", icon: null },
-      { name: "lighting", icon: null },
-      { name: "basic animation", icon: null }
+      { name: 'AWS', icon: Cloud, color: '#FF9900' },
+      { name: 'Azure', icon: Cloud, color: '#0089D6' },
+      { name: 'Netlify', icon: SiNetlify, color: '#00C7B7' },
+      { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+      { name: 'GitHub Actions', icon: SiGithubactions, color: '#2088FF' }
+    ]
+  },
+  {
+    title: 'AI / ML & RAG',
+    shadow: 'shadow-[0_4px_24px_0_rgba(251,191,36,0.15)]',
+    skills: [
+      { name: 'NumPy', icon: SiNumpy, color: '#013243' },
+      { name: 'Pandas', icon: SiPandas, color: '#150458' },
+      { name: 'scikit-learn', icon: SiScikitlearn, color: '#F7931E' },
+      { name: 'Hugging Face', icon: SiHuggingface, color: '#FF9900' }
+    ]
+  },
+  {
+    title: '3D / XR',
+    shadow: 'shadow-[0_4px_24px_0_rgba(139,92,246,0.15)]',
+    skills: [
+      { name: 'Unity', icon: SiUnity, color: '#000000' },
+      { name: 'Blender', icon: SiBlender, color: '#F5792A' },
+      { name: 'AR/VR', icon: SiUnity, color: '#000000' }
     ]
   }
 ];
 
-const SkillsSection = () => {
-  const { ref, isInView } = useScrollAnimation();
-
+export default function SkillsSection() {
   return (
-    <section id="skills" className="min-h-screen bg-white flex flex-col items-center justify-center py-8">
-      <div className="w-full max-w-5xl mx-auto text-center">
-        <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-2">Technical Skills</h2>
-        <p className="text-gray-500 text-lg mb-4">My expertise across various technologies and tools</p>
-        <div className="flex flex-col gap-8 mt-8">
-          {skillTabs.map((tab) => (
-            <div key={tab.label}>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-left">{tab.label}</h3>
-              <motion.div
-                className="flex flex-wrap justify-start gap-4 bg-gray-50 rounded-xl p-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-              >
-                {tab.skills.map((skill) => (
-                  <span
-                    key={skill.name}
-                    className="inline-flex items-center gap-2 px-5 py-2 bg-white rounded-lg shadow text-gray-900 font-semibold text-base border border-gray-200"
+    <section id="skills" className="py-20 px-4">
+      <h2 className="text-5xl md:text-6xl font-black mb-8 text-center">Expertise & Tools</h2>
+      <div className="w-[80vw] mx-auto">
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          {skillGroups.map((group) => (
+            <div
+              key={group.title}
+              className={`break-inside-avoid bg-white/70 border border-gray-300 rounded-md transition-all duration-300 mb-4 p-6 backdrop-blur-lg ${group.shadow} hover:scale-105 hover:-translate-y-1 hover:shadow-2xl`}
+            >
+              <div className="flex items-center justify-between pb-3 mb-3">
+                <h3 className="text-xl font-bold">{group.title}</h3>
+                <ChevronRight className="w-6 h-6 text-gray-400" />
+              </div>
+              <ul className="flex flex-wrap gap-3">
+                {group.skills.map(({ name, icon: Icon, color }) => (
+                  <li
+                    key={name}
+                    className="flex items-center bg-white rounded-xl p-3 shadow-sm"
                   >
-                    {skill.icon && <span className="text-xl">{skill.icon}</span>}
-                    {skill.name}
-                  </span>
+                    <Icon className="w-7 h-7 mr-2" style={{ color }} />
+                    <span className="text-base font-semibold">{name}</span>
+                  </li>
                 ))}
-              </motion.div>
+              </ul>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default SkillsSection;
+}

@@ -156,3 +156,12 @@
     perspective: 1000px;
   }
 }
+
+@keyframes fog-float {
+  0% { transform: translate(-50%, 0) scale(1); }
+  50% { transform: translate(-48%, -20px) scale(1.04); }
+  100% { transform: translate(-50%, 0) scale(1); }
+}
+.animate-fog-float {
+  animation: fog-float 8s ease-in-out infinite;
+}
