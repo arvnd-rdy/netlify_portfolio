@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -65,16 +64,16 @@ const AboutSection = () => {
               variants={staggerContainer}
             >
               <motion.p variants={staggerItem}>
-              Hey! I’m someone who just really enjoys building cool stuff with tech.
-              I work across full-stack web dev, AI/ML, and XR — so one day I might be coding a web app, and the next I’m fine-tuning a model or playing around in Unity.
+              Hey! I'm someone who just really enjoys building cool stuff with tech.
+              I work across full-stack web dev, AI/ML, and XR — so one day I might be coding a web app, and the next I'm fine-tuning a model or playing around in Unity.
               </motion.p>
               <motion.p variants={staggerItem}>
               I like making things that actually help people or feel fun to use.
-Whether it’s a smart tool, a clean UI, or an immersive 3D stuff, I’m all in.
+Whether it's a smart tool, a clean UI, or an immersive 3D stuff, I'm all in.
 Always curious, always learning — especially when it comes to how AI is changing everything.
               </motion.p>
               <motion.p variants={staggerItem}>
-              Right now, I’m looking for full-time roles where I can keep creating, growing, and working with people who love what they do.
+              Right now, I'm looking for full-time roles where I can keep creating, growing, and working with people who love what they do.
               </motion.p>
             </motion.div>
             <motion.div 
