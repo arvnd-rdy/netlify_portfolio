@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const projects = [
   {
@@ -106,8 +107,8 @@ const ProjectsSection: React.FC = () => {
       </div>
       {/* View All Projects Button */}
       <div className="text-center mt-12">
-        <a
-          href="/projects"
+        <Link
+          to="/projects"
           className="inline-flex items-center gap-2 px-8 py-3 bg-black dark:bg-white text-white dark:text-black font-mono text-sm uppercase tracking-wide hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-300 rounded-lg"
         >
           View All Projects
@@ -124,7 +125,7 @@ const ProjectsSection: React.FC = () => {
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>
-        </a>
+        </Link>
       </div>
     </section>
   );

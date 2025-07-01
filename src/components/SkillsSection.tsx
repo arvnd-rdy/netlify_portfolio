@@ -2,7 +2,7 @@ import {
   SiJavascript, SiTypescript, SiPython, SiCplusplus, SiHtml5, SiCss3, SiReact, SiRedux, SiNodedotjs, SiExpress, SiDjango, SiSpringboot, SiGraphql, SiPostgresql, SiMysql, SiMongodb, SiDocker, SiNetlify, SiGithubactions, SiNumpy, SiPandas, SiScikitlearn, SiTensorflow, SiKeras, SiPytorch, SiHuggingface, SiSpacy, SiOpencv, SiUnity, SiBlender
 } from 'react-icons/si';
 import { Cloud } from 'lucide-react';
-import Masonry from './Masonry';
+
 
 const skillCategories = [
   {
